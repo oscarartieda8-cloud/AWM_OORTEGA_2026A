@@ -1,0 +1,35 @@
+html{
+    height: 100%;
+}
+body{
+    background-color: rgb(107, 10, 107);
+    height: 100%;
+}
+.header{
+    background-color: rgb(196, 38, 117);
+    height: 10%;
+    
+}
+.section{
+    background-color: yellowgreen;
+    height: 80%;
+}
+.footer{
+    background-color: rgb(25, 165, 118);
+    height:10%;
+}
+/*
+* No podemos poner 70% + 30% por el espacio fantasma entre divs, en el HTML, pq queremos separarlos, para solventar ello usamos el atributo flex (mirar la siguiente carpeta "FLEX")
+*/
+.main{
+    background-color: rgb(255, 101, 101);
+    height: 100%;
+    width: 69%; 
+    display: inline-block;
+}
+.aside{
+    background-color: blanchedalmond;
+    height: 100%;
+    width: 30%;
+    display: inline-block;
+}

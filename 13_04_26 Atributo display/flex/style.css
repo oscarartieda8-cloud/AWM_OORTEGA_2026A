@@ -1,0 +1,32 @@
+html{
+    height: 100%;
+}
+body{
+    background-color: rgb(107, 10, 107);
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+.header{
+    background-color: rgb(196, 38, 117);
+    flex: 2;
+    
+}
+.section{
+    background-color: yellowgreen;
+    flex: 4;
+    display: flex;
+    flex-direction: row;
+}
+.footer{
+    background-color: rgb(25, 165, 118);
+    flex: 1;
+}
+.main{
+    background-color: rgb(255, 101, 101);
+    flex: 5;
+}
+.aside{
+    background-color: blanchedalmond;
+    flex: 1;
+}
