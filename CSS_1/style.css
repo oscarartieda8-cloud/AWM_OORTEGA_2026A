@@ -1,0 +1,25 @@
+.titulo1{
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+}
+.corner{
+    color: skyblue;
+}
+
+.subtitulo{
+    background-color:blue;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.contacto{
+    background-color: skyblue;
+    text-align: right;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
