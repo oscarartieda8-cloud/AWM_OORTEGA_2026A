@@ -1,0 +1,348 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgba(136, 161, 189, 0.842);
+}
+
+.tarjetaHeader{
+    flex: 2;
+    background-color: rgb(45, 24, 163);
+    margin: 10px;
+
+    border-radius: 15px;
+    border-style: solid;
+    border-color: rgb(4, 4, 80);
+    border-width: 1px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.titulosHeader{
+    margin-left: 10px;
+    margin-top: 10px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.titulosHeader p{
+    font-size: small;
+}
+
+.btnHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    margin-right: 10px;
+}
+.btnHeader button{
+    padding: 7px;
+    background-color: rgb(207, 207, 21);
+    border-radius: 7px;
+    border-width: 0px; /*yo le veo sin borde al boton*/
+    color: blue;
+}
+
+.tarjetaInfo{
+    flex: 5;
+    background-color: blanchedalmond;
+    margin: 10px;
+
+    padding: 2px;
+}
+
+.tarjetaAgenda{
+    flex: 5;
+    border-color: rgb(121, 42, 194);
+    margin: 10px;
+}
+
+.tarjetaInscripción{
+    flex: 2;
+    background-color: chartreuse;
+    margin: 10px;
+}
+
+.tarjetaRegistro{
+    flex: 7;
+    background-color: cadetblue;
+    margin: 10px;
+}
+
+/*vamos con la seccion de info del evento*/
+
+.tarjetaInfo{
+    border-radius: 15px;
+    border-style: solid;
+    border-color: rgb(120, 132, 143);
+    border-width: 1px;
+
+    background-color: rgb(207, 223, 238);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.imagenInfo{
+    border-radius: 15px;
+    border-style: dotted;
+    border-width: 2px;
+    border-color: rgb(58, 68, 202);
+
+    background-color: rgb(121, 181, 221);
+    margin: 10px;
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.imagenInfo h4{
+    color: rgb(44, 44, 153);
+    font-family: sans-serif;
+}
+.textoInfo{
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    
+    margin: 5px;
+}
+.textoInfo h3{
+    font-family: sans-serif;
+    background-color: rgb(168, 194, 231);
+    display: inline;
+}
+.textoInfo p{
+    font-family: sans-serif;
+    font-size: small;
+}
+.parrafoInfo span{
+    background-color: rgb(168, 194, 231);
+}
+
+.cartillasInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cartillaFormato{
+    flex: 1;
+    background-color: rgb(121, 181, 221);
+    margin: 10px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(90, 135, 165);
+    padding-left: 15px;
+    padding-right: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.cartillaFormato h5{
+    color: rgb(44, 44, 136);
+    font-family: sans-serif;
+
+    flex: 1;
+}
+
+.cartillaFormato p{
+    flex:3;
+    font-size: small;
+    font-family: sans-serif;
+}
+/*Ahora con la agenda y sus pequeños elemtos internos*/
+.tarjetaAgenda{
+    background-color: rgb(207, 223, 238);
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(139, 151, 161);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjetaAgenda h2{
+    flex: 1;
+    margin: 10px;
+}
+
+.contenedorDetalles{
+    flex: 4;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;/*creo que en vez de esto podría usar space-around en los detalles pero mi cerebro no ve como ahora mismo y me da miedo dañar jaja*/
+    display: flex;
+    flex-direction: row;
+}
+
+.detalleAgenda{
+    flex: 1;
+    margin: 5px;
+    background-color: rgb(121, 177, 223);
+
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: rgb(79, 115, 145);
+}
+
+.detalleAgenda div{
+    margin: 10px;
+}
+
+.detalleAgenda h3{
+    color: blue;
+    font-family: sans-serif;
+    margin-bottom: 2px;
+}
+
+.detalleAgenda h4{
+    font-family: sans-serif;
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.detalleAgenda p{
+    
+    margin-bottom: 5px;
+    font-size: small;
+
+}
+
+.detalleAgenda button{
+    background-color: rgb(35, 35, 219);
+    border-width: 1px;
+    border-radius: 8px;
+    padding: 8px;
+    color: white;
+    font-size: 10px;
+}
+.tarjetaAgenda h2{
+    margin: 10px;
+
+    font-family: sans-serif;
+}
+
+/*Vamos con la terjeta de inscripciones*/
+
+.tarjetaInscripción{
+    flex:3;
+    background-color: rgb(207, 223, 238);
+    border-radius: 15px;
+    border-style: solid;
+    border-color: rgb(81, 86, 92);
+    border-width: 1px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.tituloInscripcion{
+    margin: 10px;
+    font-family: sans-serif;
+}
+
+.opcionesInscripcion{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+}
+
+.opcion{
+    flex: 1;
+    background-color: rgb(132, 223, 120);
+    margin: 5px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: rgb(56, 110, 49);
+    padding: 10px;
+
+    text-align: center;
+}
+
+.opcion p{
+    color:rgb(39, 83, 33);
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+/*vamos con el form*/
+
+.tarjetaRegistro{
+    background-color: rgb(207, 223, 238);
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(80, 87, 94);
+}
+.tarjetaRegistro h2{
+    margin: 10px;
+    font-family: sans-serif;
+}
+
+.tipoEntradaRegistro{
+    display: flex;
+    flex-direction: column;
+}
+.tipoEntradaRegistro label{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.tipoEntradaRegistro select{
+    margin: 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.tipoEntradaRegistro input{
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    border-width: 1px;
+}
+
+.tipoEntradaRegistro #Grande{
+    padding: 30px;
+    border-width: 1px;
+}
+
+.botonEnviar{
+    margin-left: 450px;
+    background-color: rgb(13, 128, 51);
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: rgb(7, 56, 23);
+    color: white;
+}
+
