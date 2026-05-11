@@ -4,9 +4,10 @@ import { useState } from "react";
 
 const EstudiantesPage = () => {
   const [lstEstudiantes, setLstEstudiantes] = useState(listaEstudiantes);
+
   const [nuevoEstudiante, setNuevoEstudiante] = useState(
     {
-      id : Date.now(), /*simplemente para que los ids sean diferentes*/
+      id : "", /*simplemente para que los ids sean diferentes*/
       nombre: "NOMBRE",
       edad: 0,
       url: "AQUI TU URL"
@@ -14,9 +15,13 @@ const EstudiantesPage = () => {
     }
   );
 
+  console.log("renderizando")
+
   const handerAgregarEstudiante = (e) =>{
     e.preventDefault();
-    setLstEstudiantes([...lstEstudiantes, nuevoEstudiante])
+    const estudianteFinal ={...nuevoEstudiante, id: Date.now()} 
+    /*temporal y para que el id ya no moleste en base a la fecha*/
+    setLstEstudiantes([...lstEstudiantes, estudianteFinal])
     setNuevoEstudiante({...nuevoEstudiante, nombre:"", edad: 0, url:""})
   }
   return (
@@ -45,7 +50,7 @@ const EstudiantesPage = () => {
             id="est_edad" 
             placeholder="Ingresa tu edad" required 
             value={nuevoEstudiante.edad}
-            onChange={(e) => setLstEstudiantes({...nuevoEstudiante, edad: e.target.value})}
+            onChange={(e) => setNuevoEstudiante({...nuevoEstudiante, edad: e.target.value})}
             />
         </div>
         <div>
@@ -56,7 +61,7 @@ const EstudiantesPage = () => {
             id="est_url" 
             placeholder="URL del home page" 
             value={nuevoEstudiante.url}
-            onChange={(e) => setLstEstudiantes({...nuevoEstudiante, url: e.target.value})}
+            onChange={(e) => setNuevoEstudiante({...nuevoEstudiante, url: e.target.value})}
             />
         </div>
         <div>
