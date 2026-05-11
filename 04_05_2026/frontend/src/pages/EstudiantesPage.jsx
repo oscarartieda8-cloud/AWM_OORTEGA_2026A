@@ -1,74 +1,25 @@
 import Estudiante from "../components/estudiante";
+import EstudianteForm from "../components/EstudianteForm";
 import { listaEstudiantes } from "../utils/data";
 import { useState } from "react";
 
 const EstudiantesPage = () => {
+  /*ESTADO GLOBAL - PASO 1 del "State Lifting" */
   const [lstEstudiantes, setLstEstudiantes] = useState(listaEstudiantes);
-
-  const [nuevoEstudiante, setNuevoEstudiante] = useState(
-    {
-      id : "", /*simplemente para que los ids sean diferentes*/
-      nombre: "NOMBRE",
-      edad: 0,
-      url: "AQUI TU URL"
-
-    }
-  );
 
   console.log("renderizando")
 
-  const handerAgregarEstudiante = (e) =>{
-    e.preventDefault();
-    const estudianteFinal ={...nuevoEstudiante, id: Date.now()} 
-    /*temporal y para que el id ya no moleste en base a la fecha*/
+  const agregarEstudiante = (nuevo) =>{
+    const estudianteFinal ={...nuevo, id: Date.now()} /*temporal y para que el id ya no moleste en base a la fecha*/
     setLstEstudiantes([...lstEstudiantes, estudianteFinal])
-    setNuevoEstudiante({...nuevoEstudiante, nombre:"", edad: 0, url:""})
   }
   return (
     <div>
 
       <h1>Estudiantes:</h1>
       <hr />
-      <form onSubmit={handerAgregarEstudiante}>
-        <div>
-          <label htmlFor="est_nombre">Nombre: </label>
-          <input
-            type="text"
-            name="est_nombre"
-            id="est_nombre"
-            placeholder="Ingresa tu nombre" required
-            value={nuevoEstudiante.nombre}
-            onChange={(e) => setNuevoEstudiante({ ...nuevoEstudiante, nombre: e.target.value })} /> 
-            {/*e de Event, contiene toda la info del evento - target es para obtener el elemento 
-            del input pq ese genero el evento y con value saco el valor xd */}
-        </div>
-        <div>
-          <label htmlFor="est_edad">Edad:  </label>
-          <input 
-            type="number" 
-            name="est_edad" 
-            id="est_edad" 
-            placeholder="Ingresa tu edad" required 
-            value={nuevoEstudiante.edad}
-            onChange={(e) => setNuevoEstudiante({...nuevoEstudiante, edad: e.target.value})}
-            />
-        </div>
-        <div>
-          <label htmlFor="est_url">URL:  </label>
-          <input 
-            type="text" 
-            name="est_url" 
-            id="est_url" 
-            placeholder="URL del home page" 
-            value={nuevoEstudiante.url}
-            onChange={(e) => setNuevoEstudiante({...nuevoEstudiante, url: e.target.value})}
-            />
-        </div>
-        <div>
-
-          <input type="submit" id="est_submit" value={"Agregar"} />
-        </div>
-      </form>
+      /*Paso 2: pasar la referencia de la función */
+      <EstudianteForm onAgregar = {agregarEstudiante}/>
       {
         lstEstudiantes.map((estudiante) => {
           return <Estudiante 
@@ -80,15 +31,15 @@ const EstudiantesPage = () => {
                   </Estudiante>
         })
       }
-
-
-      {/* DATOS HARDCODEADOS 
-      <Estudiante nombre={"Amogus"} edad={40} url={"https://www.youtube.com/"} />
-      <Estudiante nombre={"Pacheko"} edad={77} url={"https://www.youtube.com/"} />
-      <Estudiante nombre={"Manuela"} edad={66} url={"https://www.youtube.com/"} ></Estudiante>
-      */}
     </div>
   );
 }
 
 export default EstudiantesPage;
+
+
+{/* DATOS HARDCODEADOS 
+      <Estudiante nombre={"Amogus"} edad={40} url={"https://www.youtube.com/"} />
+      <Estudiante nombre={"Pacheko"} edad={77} url={"https://www.youtube.com/"} />
+      <Estudiante nombre={"Manuela"} edad={66} url={"https://www.youtube.com/"} ></Estudiante>
+      */}
