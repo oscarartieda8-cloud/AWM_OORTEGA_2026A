@@ -11,7 +11,7 @@ const EstudiantesPage = () => {
 
   const agregarEstudiante = (nuevo) =>{
     const estudianteFinal ={...nuevo, id: Date.now()} /*temporal y para que el id ya no moleste en base a la fecha*/
-    setLstEstudiantes([...lstEstudiantes, estudianteFinal])
+    setLstEstudiantes( prev => [...prev, estudianteFinal])
   }
   return (
     <div>
