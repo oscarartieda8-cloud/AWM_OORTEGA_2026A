@@ -1,0 +1,39 @@
+{
+  "estudiantes": [
+    {
+      "id": 1,
+      "nombre": "Oscar",
+      "edad" : "23",
+      "URL" : "https://tenor.com/es/search/dancing-skeleton-gifs"
+    },
+    {
+      "id": 2,
+      "nombre": "Esteban",
+      "edad" : "24",
+      "URL" : "https://tenor.com/es/search/dancing-skeleton-gifs"
+    },
+    {
+      "id": 3,
+      "nombre": "Anaela",
+      "edad" : "25",
+      "URL" : "https://tenor.com/es/search/dancing-skeleton-gifs"
+    },
+    {
+      "id": 4,
+      "nombre": "AMONGUS",
+      "edad" : "26",
+      "URL" : "https://tenor.com/es/search/dancing-skeleton-gifs"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Keyboard"
+    },
+    {
+      "id": "2",
+      "name": "Mouse"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

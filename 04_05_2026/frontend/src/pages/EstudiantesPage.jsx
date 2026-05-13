@@ -1,16 +1,38 @@
 import Estudiante from "../components/estudiante";
 import EstudianteForm from "../components/EstudianteForm";
-import { listaEstudiantes } from "../utils/data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const EstudiantesPage = () => {
-  /*ESTADO GLOBAL - PASO 1 del "State Lifting" */
-  const [lstEstudiantes, setLstEstudiantes] = useState(listaEstudiantes);
-
   console.log("renderizando")
+  /* INICIALIZADO CON LISTA VACIA */
+  const [lstEstudiantes, setLstEstudiantes] = useState([]);
+  
+  //COSAS QUE DEBEN QUEDAR CLARAS PARA EL HTTP CON AXIOS
+      //1. Petición HTTP con axios
+
+      //2. Manejo de una promesa
+
+      //3. Manejo de side-effects usando hook: useEffect
+      useEffect(()=>{
+          axios.get("http://172.31.45.10:8000/estudiantes")
+          .then(
+            (response)=>{ /*entre otras cosas en resp estará la lista de estudiantes */
+            console.log(response);
+            setLstEstudiantes(response.data) /*aqui estamos reemplazando la lst vacia por lo que viene del server jejejeje lol */
+            }
+          )
+          .catch(
+            (err)=>{
+            console.log(err)
+            }
+          )
+      }, []) /*Aqui está el vector de dependencia que evita el side effect */
+
+    
 
   const agregarEstudiante = (nuevo) =>{
-    const estudianteFinal ={...nuevo, id: Date.now()} /*temporal y para que el id ya no moleste en base a la fecha*/
+    const estudianteFinal ={...nuevo, id: Date.now()} 
     setLstEstudiantes( prev => [...prev, estudianteFinal])
   }
   return (
@@ -18,7 +40,6 @@ const EstudiantesPage = () => {
 
       <h1>Estudiantes:</h1>
       <hr />
-      /*Paso 2: pasar la referencia de la función */
       <EstudianteForm onAgregar = {agregarEstudiante}/>
       {
         lstEstudiantes.map((estudiante) => {
@@ -38,8 +59,3 @@ const EstudiantesPage = () => {
 export default EstudiantesPage;
 
 
-{/* DATOS HARDCODEADOS 
-      <Estudiante nombre={"Amogus"} edad={40} url={"https://www.youtube.com/"} />
-      <Estudiante nombre={"Pacheko"} edad={77} url={"https://www.youtube.com/"} />
-      <Estudiante nombre={"Manuela"} edad={66} url={"https://www.youtube.com/"} ></Estudiante>
-      */}
