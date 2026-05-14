@@ -4,11 +4,6 @@ import { Formik } from 'formik';
 const EstudianteForm = (props) => {
     const [nuevoEstudiante, setNuevoEstudiante] = useState(
         {
-            id: "", /*simplemente para que los ids sean diferentes*/
-            nombre: "NOMBRE",
-            edad: 0,
-            url: "AQUI TU URL"
-
         }
     );
 

@@ -10,7 +10,7 @@ const Estudiante = (props) => {
         <div>
             <h1>{nombre}</h1>
             <h2>{edad}</h2>
-            <a href={url}>Home Page</a>
+            {url ? <a href={url}>Home Page</a> : <p>no disponible jeje</p>}
         </div>
     );
 }

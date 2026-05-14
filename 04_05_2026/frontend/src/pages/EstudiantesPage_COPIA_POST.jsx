@@ -41,6 +41,7 @@ const EstudiantesPage = () => {
 
       <h1>Estudiantes:</h1>
       <hr />
+      <EstudianteForm onAgregar = {agregarEstudiante}/>
       {
         lstEstudiantes.map((estudiante) => {
           return <Estudiante 
