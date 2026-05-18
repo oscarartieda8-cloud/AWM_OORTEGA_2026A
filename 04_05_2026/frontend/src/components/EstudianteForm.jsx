@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useState, } from "react";
 import { Formik } from 'formik';
+import { useNavigate } from "react-router";
 
 const EstudianteForm = (props) => {
     const [nuevoEstudiante, setNuevoEstudiante] = useState(
         {
+            nombre: "",
+            edad:0,
+            url:""
         }
     );
+
+    const navegar = useNavigate();
 
     const [errorNombre, setErrorNombre] = useState("");
     const [errorEdad, setErrorEdad] = useState("");
@@ -17,17 +23,17 @@ const EstudianteForm = (props) => {
         if(nuevoEstudiante.nombre.length >= 8){
             onAgregar(nuevoEstudiante)
             setErrorNombre("")
+            navegar("/estudiantes")
             
-        }else {
-            setErrorNombre("DESGRACIADO MINIMO 8 LETRAS EN LOS NOMBRES!")
-        }
-
-        if(nuevoEstudiante.edad >= 18){
+        }else if(nuevoEstudiante.edad >= 18){
             onAgregar(nuevoEstudiante)
             setErrorEdad("");
+            navegar("/estudiantes")
         }else{
             setErrorEdad("Al menos 18!!!")
+            setErrorNombre("DESGRACIADO MINIMO 8 LETRAS EN LOS NOMBRES!")
         }
+        //aqui es donde se manda 2 VECEEES -- arreglado: una sola verificación
     }
     return (
 

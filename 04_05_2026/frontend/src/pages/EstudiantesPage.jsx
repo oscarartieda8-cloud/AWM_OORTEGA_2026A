@@ -1,48 +1,17 @@
 import Estudiante from "../components/estudiante";
 import EstudianteForm from "../components/EstudianteForm";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import {useEstudiante} from "../hooks/useEstudiante"
 
-const EstudiantesPage = () => {
-  console.log("renderizando")
-  /* INICIALIZADO CON LISTA VACIA */
-  const [lstEstudiantes, setLstEstudiantes] = useState([]);
+const EstudiantesPage = (props) => {
+  const {estudiantes} = props;
   
-  //COSAS QUE DEBEN QUEDAR CLARAS PARA EL HTTP CON AXIOS
-      //1. Petición HTTP con axios
-
-      //2. Manejo de una promesa
-
-      //3. Manejo de side-effects usando hook: useEffect
-      useEffect(()=>{
-          axios.get("http://172.31.45.20:8000/estudiantes")
-          .then(
-            (response)=>{ /*entre otras cosas en resp estará la lista de estudiantes */
-            console.log(response);
-            setLstEstudiantes(response.data) /*aqui estamos reemplazando la lst vacia por lo que viene del server jejejeje lol */
-            }
-          )
-          .catch(
-            (err)=>{
-            console.log(err)
-            }
-          )
-      }, []) /*Aqui está el vector de dependencia que evita el side effect */
-
-    
-
-  const agregarEstudiante = (nuevo) =>{
-    axios.post("http://172.31.45.20:8000/estudiantes", nuevo) /*pq sube 2 veces? */
-    const estudianteFinal ={...nuevo, id: Date.now()} 
-    setLstEstudiantes( prev => [...prev, estudianteFinal])
-  }
   return (
     <div>
 
       <h1>Estudiantes:</h1>
-      <hr />
+      <hr/>
       {
-        lstEstudiantes.map((estudiante) => {
+        estudiantes.map((estudiante) => {
           return <Estudiante 
                     key = {estudiante.id}
                     nombre={estudiante.nombre} 
