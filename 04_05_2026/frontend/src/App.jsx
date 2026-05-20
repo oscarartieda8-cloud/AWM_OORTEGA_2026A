@@ -1,25 +1,23 @@
-import Estudiante from "./components/Estudiante";
 import EstudianteForm from "./components/EstudianteForm";
 import EstudiantesPage from "./pages/EstudiantesPage";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import { useEstudiante } from "./hooks/useEstudiante";
+import HomePage from "./pages/HomePage"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useEstudiante } from "./hooks/useEstudiante";  //1
+import DetalleEstudiante from "./pages/DetalleEstudiante";
 
-function App(){
+const App = () => {
 
-    const { estudiantes, agregarEstudiante } = useEstudiante();
-  return(
+  const { estudiantes, agregarEstudiante} = useEstudiante();  //2
 
-      <BrowserRouter> 
-      {/*tablita de enrutamiento */}
-        <Routes>
-          <Route path="/estudiantes" element={<EstudiantesPage estudiantes = {estudiantes}></EstudiantesPage>}></Route>
-          <Route path="/estudiantes/nuevo" element={<EstudianteForm onAgregar={agregarEstudiante}></EstudianteForm>}></Route>
-          <Route path="/" element={<HomePage></HomePage>}></Route>
-
-        </Routes>
-      </BrowserRouter>
-
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/estudiantes" element= {<EstudiantesPage estudiantes = {estudiantes}/>}></Route> {/* 3 */ }
+        <Route path="/estudiantes/nuevo" element= {<EstudianteForm onAgregar = {agregarEstudiante} />}></Route>
+        <Route path= "/estudiantes/:id/detalle" element= {<DetalleEstudiante/>}></Route> {/*Parece que estamos queriendo que el ID del ruteo sea variable =0 */}
+        <Route path="/" element= {<HomePage/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
