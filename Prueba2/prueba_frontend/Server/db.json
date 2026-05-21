@@ -63,6 +63,14 @@
       "pais": "sdada",
       "descripcion": "",
       "descripción": "dasadasa"
+    },
+    {
+      "id": "b8YXlz2UY_E",
+      "nombre": "Quitussy",
+      "ciudad": "Quito",
+      "pais": "Quitussy",
+      "descripcion": "",
+      "descripción": "Quitussy"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../utils/api";
-{/*aca props son la func set de mi hook */}
+{/*aca props son la func set de mi hook */ }
 const LugarForm = (props) => {
     const [sitio, setSitio] = useState({
         id: 0,
@@ -10,13 +10,13 @@ const LugarForm = (props) => {
         pais: "",
         descripcion: ""
     });
-    const {onAgregar} = props;
+    const { onAgregar } = props;
 
     const navegar = useNavigate();
 
     const HandlerSubmit = (e) => {
         e.preventDefault();
-        if(sitio.id >= 1 && sitio.descripción != ""){
+        if (sitio.id >= 1 && sitio.descripción != "") {
             onAgregar(sitio);
             navegar("/");
         }
@@ -49,14 +49,21 @@ const LugarForm = (props) => {
                 </div>
                 <div>
                     <label htmlFor="ciudad">Ciudad</label>
-                    <input type="text"
+                    <select
                         name="ciudad"
                         id="ciudad"
                         required
-                        placeholder="Ingrese la Ciudad"
                         value={sitio.ciudad}
                         onChange={(e) => setSitio(prev => ({ ...prev, ciudad: e.target.value }))}
-                    />
+                    >
+                        <option value="">Seleccione una ciudad</option>
+
+                        {/* Tus opciones reales */}
+                        <option value="Quito">Quito</option>
+                        <option value="Guayaquil">Guayaquil</option>
+                        <option value="Cuenca">Cuenca</option>
+                        <option value="Loja">Loja</option>
+                    </select>
                 </div>
                 <div>
                     <label htmlFor="nombre">País</label>
@@ -81,7 +88,7 @@ const LugarForm = (props) => {
                     />
                 </div>
                 <div>
-                    <input type="submit" id="submit_btn" value={"AGREGAR!!"}/>
+                    <input type="submit" id="submit_btn" value={"AGREGAR!!"} />
                 </div>
                 <div>
 
