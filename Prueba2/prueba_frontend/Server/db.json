@@ -1,0 +1,77 @@
+{
+  "sitios": [
+    {
+      "id": "1",
+      "nombre": "Centro Histórico",
+      "ciudad": "Quito",
+      "pais": "Ecuador",
+      "descripción": "El conjunto patrimonial mejor conservado de América Latina, famoso por sus iglesias y arquitectura colonial."
+    },
+    {
+      "id": "2",
+      "nombre": "Parque del Retiro",
+      "ciudad": "Madrid",
+      "pais": "España",
+      "descripción": "Un gran parque histórico en el centro de la ciudad, ideal para caminar y pasear en bote."
+    },
+    {
+      "id": "3",
+      "nombre": "El Panecillo",
+      "ciudad": "Quito",
+      "pais": "Ecuador",
+      "descripción": "Elevación natural coronada por una escultura gigante de la Virgen de Quito, ofreciendo una vista panorámica."
+    },
+    {
+      "id": "IcRzNTU9u-c",
+      "nombre": "caca",
+      "ciudad": "caca",
+      "pais": "caca",
+      "descripción": "caca"
+    },
+    {
+      "id": "q2ZJU14_ZBs",
+      "nombre": "HOLA PACHEKE",
+      "ciudad": "HOLA PACHEKE",
+      "pais": "HOLA PACHEKE",
+      "descripción": "HOLA PACHEKE"
+    },
+    {
+      "id": "n3qu81GCJi0",
+      "nombre": "HOLA PACHEKE",
+      "ciudad": "HOLA PACHEKE",
+      "pais": "HOLA PACHEKE",
+      "descripción": "HOLA PACHEKE"
+    },
+    {
+      "id": "TQGxPNllp3A",
+      "nombre": "Sitio 4",
+      "ciudad": "Sitio 4",
+      "pais": "Sitio 4",
+      "descripción": "Sitio 4"
+    },
+    {
+      "id": "fZ_bbdNhxr4",
+      "nombre": "Sitio 4",
+      "ciudad": "Sitio 4",
+      "pais": "Sitio 4",
+      "descripción": "Sitio 4"
+    },
+    {
+      "id": "CbkNJVTW-0M",
+      "nombre": "dsadas",
+      "ciudad": "sdad",
+      "pais": "sdada",
+      "descripcion": "",
+      "descripción": "dasadasa"
+    },
+    {
+      "id": "b8YXlz2UY_E",
+      "nombre": "Quitussy",
+      "ciudad": "Quito",
+      "pais": "Quitussy",
+      "descripcion": "",
+      "descripción": "Quitussy"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

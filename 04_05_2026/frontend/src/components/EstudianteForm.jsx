@@ -18,7 +18,7 @@ const EstudianteForm = (props) => {
 
     const { onAgregar } = props; 
 
-    const hnadlerSubmit = (e) =>{
+    const handlerSubmit = (e) =>{
         e.preventDefault();
         if(nuevoEstudiante.nombre.length >= 8){
             onAgregar(nuevoEstudiante)
@@ -37,14 +37,15 @@ const EstudianteForm = (props) => {
     }
     return (
 
-        <form onSubmit={hnadlerSubmit}>
+        <form onSubmit={handlerSubmit}>
             <div>
                 <label htmlFor="est_nombre">Nombre: </label>
                 <input
                     type="text"
                     name="est_nombre"
                     id="est_nombre"
-                    placeholder="Ingresa tu nombre" required
+                    placeholder="Ingresa tu nombre" 
+                    required
                     value={nuevoEstudiante.nombre}
                     onChange={(e) => setNuevoEstudiante(prev => ({ ...prev, nombre: e.target.value }))} />
                 {/*e de Event, contiene toda la info del evento - target es para obtener el elemento 
