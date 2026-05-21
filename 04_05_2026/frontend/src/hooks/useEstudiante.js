@@ -1,4 +1,3 @@
-//gestionar el Estado y las conexiones a la API que afectan a ese estado?
 import { useState, useEffect } from "react";
 import { api } from "../utils/api";
 

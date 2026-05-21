@@ -2,7 +2,6 @@
 
 const Estudiante = (props) => {
     //los Props tendrán en el mismito orden que pusimos un {nombre: "...", edad: 00, url: "..."}
-    console.log(props);
     //Vamos a desestructurar los elementos
     const {nombre, edad, url} = props;
     return (
