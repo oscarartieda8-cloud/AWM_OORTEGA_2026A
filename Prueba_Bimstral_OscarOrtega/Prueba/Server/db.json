@@ -1,0 +1,8 @@
+{
+    "talleres": 
+    [
+        {"id": 1, "nombre": "Introducción a React", "nivel":"basico", "duracion":10},
+        {"id": 2, "nombre": "JavaScript Moderno", "nivel":"neutro", "duracion":100000},
+        {"id": 3, "nombre": "Taller 3", "nivel":"acido", "duracion":30}   
+    ]
+}
