@@ -24,5 +24,12 @@ export const useEstudiante = () => {
                 console.log("Error al agregar estudiante jeje")
             })
     }
-    return { estudiantes, agregarEstudiante } //estamos trabajando con objetos es una contracción como si la clave y el valor se llamaran igual {estudiantes:estudiantes, agregarEstudiantes:agregarEstudiantes}
+
+     const eliminarEstudiante = (id) => {
+        api.delete(`/estudiantes/${id}`)
+        .then(()=> prev=> estudiantes.filter(e => e.id != id))
+        .catch(err=>console.log(err))
+    }
+    return { estudiantes, agregarEstudiante, eliminarEstudiante } //estamos trabajando con objetos es una contracción como si la clave y el valor se llamaran igual {estudiantes:estudiantes, agregarEstudiantes:agregarEstudiantes}
+
 }
