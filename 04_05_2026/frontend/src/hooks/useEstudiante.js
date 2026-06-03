@@ -30,6 +30,17 @@ export const useEstudiante = () => {
         .then(()=> prev=> estudiantes.filter(e => e.id != id))
         .catch(err=>console.log(err))
     }
-    return { estudiantes, agregarEstudiante, eliminarEstudiante } //estamos trabajando con objetos es una contracción como si la clave y el valor se llamaran igual {estudiantes:estudiantes, agregarEstudiantes:agregarEstudiantes}
+
+    const actualizarEstudiante = (id, nuevo) => {
+        api.put(`/estudiantes/${id}`, nuevo)
+        .then((res)=>{
+            setEstudiantes((prev)=>prev.map(
+                (estudiante)=> estudiante.id === id ? res.data : estudiante))
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+    return { estudiantes, agregarEstudiante, eliminarEstudiante, actualizarEstudiante } //estamos trabajando con objetos es una contracción como si la clave y el valor se llamaran igual {estudiantes:estudiantes, agregarEstudiantes:agregarEstudiantes}
 
 }

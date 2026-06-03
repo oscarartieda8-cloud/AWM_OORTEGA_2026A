@@ -2,10 +2,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../utils/api";
+import { useNavigate } from "react-router-dom";
 
 const DetalleEstudiante = () => {
     const [estudiante, setEstudiante] = useState({});
     const { id } = useParams();
+    const nav = useNavigate();
 
     useEffect(() => {
         api.get(`/estudiantes/${id}`)
@@ -19,7 +21,7 @@ const DetalleEstudiante = () => {
             <h4>Edad: {estudiante.edad}</h4>
             {estudiante.url ? <a href={estudiante.url}>Home Page</a> : <span>Home page no disponible</span>}
             <div>
-                <button>Editar</button>
+                <button onClick={() => nav(`/estudiantes/${id}/editar`) }>Editar</button>
             </div>
         </div>
     )

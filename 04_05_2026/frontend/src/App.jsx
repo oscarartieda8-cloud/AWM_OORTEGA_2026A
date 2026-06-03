@@ -7,7 +7,7 @@ import DetalleEstudiante from "./pages/DetalleEstudiante";
 
 const App = () => {
 
-  const { estudiantes, agregarEstudiante, eliminarEstudiante} = useEstudiante();  //2
+  const { estudiantes, agregarEstudiante, eliminarEstudiante, actualizarEstudiante } = useEstudiante();  //2
 
   return (
     <BrowserRouter>
@@ -16,6 +16,7 @@ const App = () => {
         <Route path="/estudiantes/nuevo" element= {<EstudianteForm onAgregar = {agregarEstudiante} />}></Route>
         <Route path= "/estudiantes/:id/detalle" element= {<DetalleEstudiante/>}></Route> {/*Parece que estamos queriendo que el ID del ruteo sea variable =0 */}
         <Route path="/" element= {<HomePage/>}></Route>
+        <Route path="/estudiantes/:id/editar" element={<EstudianteForm onActualizar={actualizarEstudiante} estudiantes={estudiantes}></EstudianteForm>}></Route>
       </Routes>
     </BrowserRouter>
   );
