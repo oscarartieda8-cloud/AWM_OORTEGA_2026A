@@ -2,6 +2,21 @@ const express = require("express");
 const app = express();
 const puerto = 8000;
 
+require('./server/config/mongoose.config');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+const allEstudiantesRoutes = require('./server/routes/estudiante.routes');
+allEstudiantesRoutes(app);
+
+app.listen(puerto, () => {
+    console.log("Server listening at port", puerto)
+})
+
+
+/*
 //ponemos _ si no necesitaras el req o el res jaja
 app.get("/", (req,res)=>{
     res.json({"mensaje" : "Hola mundo!"})// este es un json
@@ -28,4 +43,4 @@ app.delete("/estudiantes/:id", (req,res)=>{
     })
 })
 
-app.listen(puerto, ()=>console.log("El servidor está escuchando en el puerto: ", puerto))
+app.listen(puerto, ()=>console.log("El servidor está escuchando en el puerto: ", puerto))*/
