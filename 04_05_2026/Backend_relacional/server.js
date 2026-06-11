@@ -1,14 +1,18 @@
 const express = require("express");
+const app = express();
+const env = require('./config/env');
+const puerto = process.env.PORT;
+
 require('dotenv').config(); 
 
-const app = express();
-const puerto = process.env.PORT || 8000;
 
 const { createSequelize } = require('./config/sequelize.config');
 const sequelize = createSequelize();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+
 
 const allEstudiantesRoutes = require('./routes/estudiante.routes');
 allEstudiantesRoutes(app);
