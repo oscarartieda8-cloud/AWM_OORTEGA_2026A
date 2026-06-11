@@ -1,5 +1,5 @@
 const { Sequelize } = require("sequelize");
-const env = require("../config/env");
+const env = require("./env");
 
 module.exports.createSequelize = () =>{
 
@@ -7,7 +7,7 @@ module.exports.createSequelize = () =>{
         host: env.db.host,
         port: env.db.port,
         dialect: env.db.dialect,
-        loggin: false,
+        logging: false,
         define: {
             underscored: true,
             freezeTableName: true,
