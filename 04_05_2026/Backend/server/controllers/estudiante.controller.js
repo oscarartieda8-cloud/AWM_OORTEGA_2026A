@@ -19,4 +19,4 @@ module.exports.postEstudiante = (req, res) => {
     Estudiante.create({nombre,edad,url})
         .then(res => res.json({message: "QUE BIEN SI SE INGRESO"}))
         .catch(err => res.json(err))
-}
+} //algo esta mal
