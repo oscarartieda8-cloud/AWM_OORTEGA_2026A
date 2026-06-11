@@ -69,7 +69,7 @@ const EstudianteForm = (props) => {
                     <label htmlFor="est_nombre">Nombre: </label>
                     <input
                         type="text"
-                        name="est_nombre"
+                        name="nombre"
                         id="est_nombre"
                         placeholder="Ingresa tu nombre"
                         required
@@ -85,7 +85,7 @@ const EstudianteForm = (props) => {
                     <label htmlFor="est_edad">Edad:  </label>
                     <input
                         type="number"
-                        name="est_edad"
+                        name="edad"
                         id="est_edad"
                         placeholder="Ingresa tu edad" required
                         value={nuevoEstudiante.edad}
@@ -100,7 +100,7 @@ const EstudianteForm = (props) => {
                     <label htmlFor="est_url">URL:  </label>
                     <input
                         type="text"
-                        name="est_url"
+                        name="url"
                         id="est_url"
                         placeholder="URL del home page"
                         value={nuevoEstudiante.url}

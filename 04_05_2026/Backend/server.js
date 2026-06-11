@@ -9,8 +9,9 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const allEstudiantesRoutes = require('./server/routes/estudiante.routes');
-allEstudiantesRoutes(app);
 
+app.use(express.json())
+allEstudiantesRoutes(app);
 app.listen(puerto, () => {
     console.log("Server listening at port", puerto)
 })
