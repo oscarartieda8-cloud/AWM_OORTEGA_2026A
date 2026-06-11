@@ -6,7 +6,7 @@ module.exports = {
   db: {
     host: process.env.DB_HOST || "localhost",
     port: Number(process.env.DB_PORT || 3306),
-    name: process.env.DB_NAME || "epn",
+    name: process.env.DB_NAME || "epn_bdd",
     user: process.env.DB_USER || "root",
     pass: process.env.DB_PASS || "",
     dialect: process.env.DB_DIALECT || "mysql",

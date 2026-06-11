@@ -3,7 +3,7 @@ const { createSequelize } = require('../config/sequelize.config');
 
 const sequelize = createSequelize();
 
-const Estudiante = sequelize.define('estudiante', {
+const Estudiante = sequelize.define('estudiantes', {
     nombre: {
         type: DataTypes.STRING,
         allowNull: false
