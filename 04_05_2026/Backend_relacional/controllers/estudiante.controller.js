@@ -8,3 +8,4 @@ module.exports.getAllEstudiantes = (_, res) => {
         .catch(err => res.status(500).json(err))
 }
 
+

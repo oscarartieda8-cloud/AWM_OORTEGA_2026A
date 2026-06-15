@@ -17,7 +17,7 @@ module.exports.getEstudiante = (req, res) =>{
 module.exports.postEstudiante = (req, res) => {
     const {nombre, edad, url} = req.body;
     Estudiante.create({nombre,edad,url})
-        .then(resultado => res.json({message: "QUE BIEN SI SE INGRESO"}))
+        .then(resultado => res.json(resultado))
         .catch(err => res.status(500).json(err))
 }
 
@@ -25,7 +25,7 @@ module.exports.putEstudiantes = (req, res) => {
     const {id} = req.params;
     const {nombre, edad, url} = req.body;
     Estudiante.findOneAndUpdate({_id:id}, {nombre, edad, url}, {new:true})
-        .then(resultado => res.json({message: "ESTUDIANTE ACTUALIZADO"}))
+        .then(resultado => res.json(resultado))
         .catch(err => res.status(500).json(err))
 }
 

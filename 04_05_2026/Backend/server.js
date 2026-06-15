@@ -2,15 +2,19 @@ const express = require("express");
 const app = express();
 const puerto = 8000;
 
+const cors = require('cors');
+
 require('./server/config/mongoose.config');
 
 app.use(express.json());
+app.use(cors());
+
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.json()); //ESTE ES NUESTRO MIDDLEWARE PARA QUE EXPRESS PUEDA ENTENDER LOS JSONS QUE LE ENVIAMOS DESDE EL FRONTEND - NO ESTA EN LA CARPETA DE MIDDLEWARES PORQUE ES UNA FUNCION QUE YA VIENE INCLUIDA EN EXPRESS, NO ES ALGO QUE HAYAMOS CREADO NOSOTROS
 
 const allEstudiantesRoutes = require('./server/routes/estudiante.routes');
 
-app.use(express.json())
 allEstudiantesRoutes(app);
 app.listen(puerto, () => {
     console.log("Server listening at port", puerto)
