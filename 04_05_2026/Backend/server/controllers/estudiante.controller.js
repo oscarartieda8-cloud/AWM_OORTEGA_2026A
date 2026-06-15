@@ -24,7 +24,7 @@ module.exports.postEstudiante = (req, res) => {
 module.exports.putEstudiantes = (req, res) => {
     const {id} = req.params;
     const {nombre, edad, url} = req.body;
-    Estudiante.updateOne({_id:id}, {nombre, edad, url})
+    Estudiante.findOneAndUpdate({_id:id}, {nombre, edad, url}, {new:true})
         .then(resultado => res.json({message: "ESTUDIANTE ACTUALIZADO"}))
         .catch(err => res.status(500).json(err))
 }
