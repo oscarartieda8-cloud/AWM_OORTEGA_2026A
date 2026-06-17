@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+const cors = require('cors');
 const env = require('./config/env');
 const puerto = process.env.PORT;
 
@@ -11,6 +11,7 @@ const { createSequelize } = require('./config/sequelize.config');
 const sequelize = createSequelize();
 
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 

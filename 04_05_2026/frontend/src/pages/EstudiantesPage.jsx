@@ -17,7 +17,6 @@ const EstudiantesPage = (props) => {
                         edad={estudiante.edad}
                         url={estudiante.url}/>
                         <button onClick={() => navegar(`/estudiantes/${estudiante._id}/detalle`) }>Detalle</button>
-                        <button onClick={()=> {onEliminar(estudiante._id)} }>Eliminar</button>
                     </div>
                     
                 )

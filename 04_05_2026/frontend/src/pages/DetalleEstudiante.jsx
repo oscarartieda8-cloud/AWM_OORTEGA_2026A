@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom";
 import { api } from "../utils/api";
 import { useNavigate } from "react-router-dom";
 
-const DetalleEstudiante = () => {
+const DetalleEstudiante = (props) => {
     const [estudiante, setEstudiante] = useState({});
     const { id } = useParams();
     const nav = useNavigate();
+    const { onEliminar } = props;
 
     useEffect(() => {
         api.get(`/estudiantes/${id}`)
@@ -23,6 +24,12 @@ const DetalleEstudiante = () => {
             <div>
                 <button onClick={() => nav(`/estudiantes/${id}/editar`) }>Editar</button>
             </div>
+            <button onClick={() => {
+                onEliminar(estudiante._id);
+                nav('/estudiantes');
+                }}>
+                Eliminar
+            </button>
         </div>
     )
 }
