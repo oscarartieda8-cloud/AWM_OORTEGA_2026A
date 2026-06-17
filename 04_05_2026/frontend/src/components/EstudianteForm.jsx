@@ -23,7 +23,7 @@ const EstudianteForm = (props) => {
     useEffect(() => {
 
         if (id) {
-            const estudianteEditado = estudiantes.find(e => e._id == id)
+            const estudianteEditado = estudiantes.find(e => e.id == id)
 
             if (estudianteEditado) {
                 setNuevoEstudiante(estudianteEditado)

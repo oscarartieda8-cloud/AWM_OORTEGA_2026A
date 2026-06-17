@@ -1,11 +1,14 @@
 const express = require("express");
+const cors = require('cors');;
+
+
 const app = express();
+app.use(cors());
 
 const env = require('./config/env');
 const puerto = process.env.PORT;
 
 require('dotenv').config(); 
-
 
 const { createSequelize } = require('./config/sequelize.config');
 const sequelize = createSequelize();

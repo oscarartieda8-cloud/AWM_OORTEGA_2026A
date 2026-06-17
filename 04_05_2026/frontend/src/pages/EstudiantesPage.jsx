@@ -11,13 +11,13 @@ const EstudiantesPage = (props) => {
             <button onClick={() => navegar("/estudiantes/nuevo")}>+</button>
             {
                 estudiantes.map((estudiante) => 
-                    <div key={estudiante._id}> {/*EL elemento individual ya no es el estudiante sino el DIV*/}
+                    <div key={estudiante.id}> {/*EL elemento individual ya no es el estudiante sino el DIV*/}
                         <Estudiante
                         nombre={estudiante.nombre}
                         edad={estudiante.edad}
                         url={estudiante.url}/>
-                        <button onClick={() => navegar(`/estudiantes/${estudiante._id}/detalle`) }>Detalle</button>
-                        <button onClick={()=> {onEliminar(estudiante._id)} }>Eliminar</button>
+                        <button onClick={() => navegar(`/estudiantes/${estudiante.id}/detalle`) }>Detalle</button>
+                        <button onClick={()=> {onEliminar(estudiante.id)} }>Eliminar</button>
                     </div>
                     
                 )
