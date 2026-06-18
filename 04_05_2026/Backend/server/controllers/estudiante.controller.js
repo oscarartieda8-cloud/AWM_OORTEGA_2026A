@@ -1,5 +1,6 @@
 const { response } = require("express")
 const Estudiante = require("../models/estudiante.model")
+const  bcrypt = require("bcryptjs")
 
 module.exports.getAllEstudiantes = (_, res) => {
     Estudiante.find({})
@@ -14,11 +15,33 @@ module.exports.getEstudiante = (req, res) =>{
         .catch(err => res.status(500).json(err))
 }
 
-module.exports.postEstudiante = (req, res) => {
-    const {nombre, edad, url} = req.body;
-    Estudiante.create({nombre,edad,url})
-        .then(resultado => res.json(resultado))
-        .catch(err => res.status(500).json(err))
+module.exports.postEstudiante = async (req, res) => {
+    const {nombre, edad, url, password, email } = req.body;
+    if(!nombre||!edad||!password || !email){
+        return res.status(400).json({message:"Campos obligatorios incompletos!"})
+    }
+    else{
+        const estudianteEcnontrado = await Estudiante.findOne({email});
+        if(estudianteEcnontrado){
+            return res.status(400).json({message:"Usuario ya existe con ese correo"});
+        }
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        Estudiante.create({nombre,edad,url, password: hashedPassword, email})
+            .then(resultado => res.json({nombre:resultado.nombre, edad:resultado.edad, url: resultado.url, email:resultado.email}))
+            .catch(err => res.status(500).json(err))
+    }
+}
+
+module.exports.loginEstudiante = async (req, res) => {
+    const {email, password} = req.body;
+    const estudianteEncontrado = await Estudiante.findOne({email});
+    if(estudianteEncontrado && (await bcrypt.compare(password, estudianteEncontrado.password))){
+        return res.json({message: 'Inicio de sesion correcto'})
+    }else{
+        return res.status(400).json({message:"Login Fallido"})
+    }
 }
 
 module.exports.putEstudiantes = (req, res) => {

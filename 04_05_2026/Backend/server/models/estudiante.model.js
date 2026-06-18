@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
 const EstudianteSchema = new mongoose.Schema({
-
     nombre: {
         type: String,
         required: [
@@ -23,8 +22,24 @@ const EstudianteSchema = new mongoose.Schema({
         required: [
             false
         ]
+    },
+    password: {
+        type: String,
+        required: [
+            true, "Password is required"
+        ]
+    },
+    email: {
+        type: String,
+        required: [
+            true, "email is required"
+        ]
     }
-})
+},
+{
+    timestamps: true //opcional para auditoria
+}
+)
 
 const Estudiante = mongoose.model('estudiante', EstudianteSchema);
 
