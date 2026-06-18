@@ -9,7 +9,10 @@ const EstudianteForm = (props) => {
         {
             nombre: "",
             edad: 0,
-            url: ""
+            url: "",
+            email: "",
+            password: ""
+
         }
     );
     const { id } = useParams();
@@ -58,12 +61,12 @@ const EstudianteForm = (props) => {
         }
 
         // 4. Redirección final
-        navegar("/estudiantes");
+        navegar("/estudiantes/login");
     };
     return (
 
         <div>
-            <h2>{id ? "Edicion de estudiantes" : "Agregación de estudiantes"}</h2>
+            <h2>{id ? "Edicion de estudiantes" : "Registro de estudiantes"}</h2>
             <form onSubmit={handlerSubmit}>
                 <div>
                     <label htmlFor="est_nombre">Nombre: </label>
@@ -108,8 +111,29 @@ const EstudianteForm = (props) => {
                     />
                 </div>
                 <div>
-
-                    <input type="submit" id="est_submit" value={id ? "Editar" : "Agregar"} />
+                    <label htmlFor="est_email">Email:  </label>
+                    <input
+                        type="text"
+                        name="email"
+                        id="est_email"
+                        placeholder="Email del home page"
+                        value={nuevoEstudiante.email}
+                        onChange={(e) => setNuevoEstudiante({ ...nuevoEstudiante, email: e.target.value })}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="est_password">Contraseña:  </label>
+                    <input
+                        type="text"
+                        name="password"
+                        id="est_password"
+                        placeholder="Ingresa tu contraseña"
+                        value={nuevoEstudiante.password}
+                        onChange={(e) => setNuevoEstudiante({ ...nuevoEstudiante, password: e.target.value })}
+                    />
+                </div>
+                <div>
+                    <input type="submit" id="est_submit" value={id ? "Editar" : "Agregar"}/>
                 </div>
             </form>
         </div>
