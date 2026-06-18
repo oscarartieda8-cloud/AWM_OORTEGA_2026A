@@ -27,7 +27,7 @@ export const useEstudiante = () => {
 
      const eliminarEstudiante = (id) => {
         api.delete(`/estudiantes/${id}`)
-        .then(()=> prev=> estudiantes.filter(e => e._id != id))
+        .then(()=> {setEstudiantes(prev=> estudiantes.filter(e => e._id != id))})
         .catch(err=>console.log(err))
     }
 
