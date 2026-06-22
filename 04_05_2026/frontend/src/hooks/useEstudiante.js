@@ -30,8 +30,8 @@ export const useEstudiante = () => {
                 console.log(err)
             })
     }
-    
-     const agregarEstudiante = (nuevo) => { /*pq sube 2 veces? */
+
+    const agregarEstudiante = (nuevo) => { /*pq sube 2 veces? */
 
         api.post("/estudiantes", nuevo)
             .then((res) => {
@@ -45,13 +45,16 @@ export const useEstudiante = () => {
     const loginEstudiante = (user) => {
         return api.post("/estudiantes/login", user)
             .then((res) => {
-                return { status: true, messge: res.data.message }
+                // Devolvemos status true y el mensaje de éxito del backend
+                return { status: true, message: res.data.message };
             })
             .catch((err) => {
-                console.log(err);
-                return { success: false, message: err.data.message };
+                console.log(err.message);
+                // Capturamos "Login Fallido" desde err.response.data.message
+                return { status: false, message: err.response.data.message || "Error en el servidor" };
             });
     }
+
     return { estudiantes, agregarEstudiante, eliminarEstudiante, actualizarEstudiante, loginEstudiante } //estamos trabajando con objetos es una contracción como si la clave y el valor se llamaran igual {estudiantes:estudiantes, agregarEstudiantes:agregarEstudiantes}
 
 }

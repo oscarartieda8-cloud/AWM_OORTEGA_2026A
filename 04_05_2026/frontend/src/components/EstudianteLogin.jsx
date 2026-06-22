@@ -11,19 +11,23 @@ const EstudianteLogin = (props) => {
 
         }
     );
+    const [errorMensaje, setErrorMensaje] = useState("");
     const { onLogin } = props
     const navegar = useNavigate();
 
     const handlerSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Bloquea que las credenciales se vayan a la URL
 
+        // Esperamos la respuesta asíncrona del hook
         const resultado = await onLogin(nuevoEstudiante);
 
-        if (resultado.status == true) {
-            navegar("/estudiantes");
+        if (resultado.status === true) {
+            setErrorMensaje(""); // Limpiamos errores anteriores si los hubiera
+            navegar("/estudiantes"); // Redirección exitosa
         }
         else {
-            console.log(resultado.message);
+            // Guardamos "Login Fallido" en el estado para mostrarlo en pantalla
+            setErrorMensaje(resultado.message); 
         }
     };
 
@@ -57,6 +61,9 @@ const EstudianteLogin = (props) => {
                 <div>
                     <input type="submit" id="est_submit" value={"Iniciar Sesion"} />
                 </div>
+                <p style={{ color: "red", fontWeight: "bold", marginTop: "10px" }}>
+                        {errorMensaje}
+                    </p>
             </form>
         </div>
 
