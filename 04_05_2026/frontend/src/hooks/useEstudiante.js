@@ -31,14 +31,16 @@ export const useEstudiante = () => {
             })
     }
 
-    const agregarEstudiante = (nuevo) => { /*pq sube 2 veces? */
-
-        api.post("/estudiantes", nuevo)
+    const agregarEstudiante = (nuevo) => {
+        return api.post("/estudiantes", nuevo)
             .then((res) => {
                 setEstudiantes(prev => ([...prev, res.data]))
+                return { status: true }
             })
             .catch((err) => {
-                console.log("Error al agregar estudiante jeje")
+                console.log("Error al agregar estudiante jeje");
+                const mensajeBackend = err.response?.data?.message || "Error al registrar";
+                return { status: false, message: mensajeBackend };
             })
     }
 

@@ -27,7 +27,7 @@ const EstudianteLogin = (props) => {
         }
         else {
             // Guardamos "Login Fallido" en el estado para mostrarlo en pantalla
-            setErrorMensaje(resultado.message); 
+            setErrorMensaje(resultado.message);
         }
     };
 
@@ -62,8 +62,8 @@ const EstudianteLogin = (props) => {
                     <input type="submit" id="est_submit" value={"Iniciar Sesion"} />
                 </div>
                 <p style={{ color: "red", fontWeight: "bold", marginTop: "10px" }}>
-                        {errorMensaje}
-                    </p>
+                    {errorMensaje}
+                </p>
             </form>
         </div>
 

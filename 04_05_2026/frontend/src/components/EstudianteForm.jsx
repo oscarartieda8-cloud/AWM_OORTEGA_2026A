@@ -17,7 +17,7 @@ const EstudianteForm = (props) => {
     );
     const { id } = useParams();
     const navegar = useNavigate();
-
+    const [estadoRegistro, setEstadoRegistro] = useState("");
     const [errorNombre, setErrorNombre] = useState("");
     const [errorEdad, setErrorEdad] = useState("");
 
@@ -34,7 +34,7 @@ const EstudianteForm = (props) => {
         }
     }, [id])
 
-    const handlerSubmit = (e) => {
+    const handlerSubmit = async (e) => {
         e.preventDefault();
 
         // 1. Validamos el Nombre primero
@@ -44,24 +44,21 @@ const EstudianteForm = (props) => {
         }
         setErrorNombre(""); // Si pasa la validación, limpiamos el error
 
-        // 2. Validamos la Edad después
-        if (nuevoEstudiante.edad < 18) {
-            setErrorEdad("Al menos 18!!!");
-            return;
-        }
-        setErrorEdad(""); // Si pasa, limpiamos el error
-
-        // ¿Editamos o Creamos?
         if (id) {
-            // Si hay ID en la URL, usamos la función PUT de nuestro hook
             onActualizar(id, nuevoEstudiante);
+            navegar("/estudiantes");
         } else {
-            // Si no hay ID, es un POST normal para crear
-            onAgregar(nuevoEstudiante);
-        }
+            // AQUÍ ESTÁ LA MAGIA: Esperamos la respuesta de tu Hook
+            const resultado = await onAgregar(nuevoEstudiante);
 
-        // 4. Redirección final
-        navegar("/estudiantes/login");
+            if (resultado.status === true) {
+                setEstadoRegistro(""); // Limpiamos el error
+                navegar("/estudiantes/login"); // Todo bien, vamos a la lista
+            } else {
+                // Si hubo error (status false), pintamos el mensaje en pantalla
+                setEstadoRegistro(resultado.message);
+            }
+        }
     };
     return (
 
@@ -133,8 +130,11 @@ const EstudianteForm = (props) => {
                     />
                 </div>
                 <div>
-                    <input type="submit" id="est_submit" value={id ? "Editar" : "Agregar"}/>
+                    <input type="submit" id="est_submit" value={id ? "Editar" : "Agregar"} />
                 </div>
+                <p style={{ color: "red", fontWeight: "bold", marginTop: "10px" }}>
+                    {estadoRegistro}
+                </p>
             </form>
         </div>
 
