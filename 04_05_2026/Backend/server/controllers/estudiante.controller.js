@@ -38,7 +38,7 @@ module.exports.loginEstudiante = async (req, res) => {
     const {email, password} = req.body;
     const estudianteEncontrado = await Estudiante.findOne({email});
     if(estudianteEncontrado && (await bcrypt.compare(password, estudianteEncontrado.password))){
-        return res.json({message: 'Inicio de sesion correcto'})
+        return res.status(200).json({message: 'Inicio de sesion correcto'})
     }else{
         return res.status(400).json({message:"Login Fallido"})
     }

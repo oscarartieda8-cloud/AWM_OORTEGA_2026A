@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 
-const EstudianteLogin = () => {
+const EstudianteLogin = (props) => {
     const [nuevoEstudiante, setNuevoEstudiante] = useState(
         {
             email: "",
@@ -11,12 +11,22 @@ const EstudianteLogin = () => {
 
         }
     );
+    const { onLogin } = props
     const navegar = useNavigate();
 
-    const handlerSubmit = (e) => {
-        
-        navegar("/estudiantes");
+    const handlerSubmit = async (e) => {
+        e.preventDefault();
+
+        const resultado = await onLogin(nuevoEstudiante);
+
+        if (resultado.status == true) {
+            navegar("/estudiantes");
+        }
+        else {
+            console.log(resultado.message);
+        }
     };
+
     return (
 
         <div>
@@ -45,7 +55,7 @@ const EstudianteLogin = () => {
                     />
                 </div>
                 <div>
-                    <input type="submit" id="est_submit" value={"Iniciar Sesion"}/>
+                    <input type="submit" id="est_submit" value={"Iniciar Sesion"} />
                 </div>
             </form>
         </div>
