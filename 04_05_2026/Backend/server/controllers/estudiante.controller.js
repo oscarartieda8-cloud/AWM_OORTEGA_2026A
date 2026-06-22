@@ -1,6 +1,7 @@
 const { response } = require("express")
 const Estudiante = require("../models/estudiante.model")
 const  bcrypt = require("bcryptjs")
+const token = require("jsonwebtoken")
 
 module.exports.getAllEstudiantes = (_, res) => {
     Estudiante.find({})
@@ -38,7 +39,9 @@ module.exports.loginEstudiante = async (req, res) => {
     const {email, password} = req.body;
     const estudianteEncontrado = await Estudiante.findOne({email});
     if(estudianteEncontrado && (await bcrypt.compare(password, estudianteEncontrado.password))){
-        return res.status(200).json({message: 'Inicio de sesion correcto'})
+        return res.status(200).json({message: 'Inicio de sesion correcto', email: estudianteEncontrado.email, nombre: estudianteEncontrado.nombre,
+            token: generateToken(estudianteEncontrado.id)
+         })
     }else{
         return res.status(400).json({message:"Login Fallido"})
     }
@@ -57,4 +60,9 @@ module.exports.deleteEstudiante = (req, res) => {
     Estudiante.deleteOne({_id:id})
         .then(resultado => res.json({message: "ESTUDIANTE ELIMINADO"}))
         .catch(err => res.status(500).json(err))
+}
+
+const generateToken = (id) => { //los parametros que pongamos aquí son cosas que irán en el Payload del Token 
+    // debe ser info reelevante para mi proposito: id, rol, email, lo que requiera - !!!van en texto plano!!!
+    return token.sign({id}, "CLAVE", {expiresIn: '30d'}) //se llama token donde yo lo importé xd
 }
