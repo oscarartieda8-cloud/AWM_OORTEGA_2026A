@@ -49,7 +49,7 @@ export const useEstudiante = () => {
             })
             .catch((err) => {
                 console.log(err);
-                return { success: false, message: err.message };
+                return { success: false, message: err.data.message };
             });
     }
     return { estudiantes, agregarEstudiante, eliminarEstudiante, actualizarEstudiante, loginEstudiante } //estamos trabajando con objetos es una contracción como si la clave y el valor se llamaran igual {estudiantes:estudiantes, agregarEstudiantes:agregarEstudiantes}
