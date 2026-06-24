@@ -1,11 +1,14 @@
 import Estudiante from "../components/Estudiante";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 //import { listaEstudiantes } from "../utils/data";
 import EstudianteForm from "../components/EstudianteForm";
 const EstudiantesPage = (props) => {
     const { estudiantes, onEliminar } = props;
     const navegar = useNavigate();
+
+
     return (
         <div>
             <button onClick={() => navegar("/estudiantes/nuevo")}>+</button>

@@ -48,12 +48,12 @@ export const useEstudiante = () => {
         return api.post("/estudiantes/login", user)
             .then((res) => {
                 // Devolvemos status true y el mensaje de éxito del backend
-                return { status: true, message: res.data.message };
+                return res;
             })
             .catch((err) => {
                 console.log(err.message);
                 // Capturamos "Login Fallido" desde err.response.data.message
-                return { status: false, message: err.response.data.message || "Error en el servidor" };
+                return { message: err.response.data.message };
             });
     }
 
