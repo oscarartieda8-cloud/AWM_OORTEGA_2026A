@@ -34,6 +34,14 @@ const EstudianteSchema = new mongoose.Schema({
         required: [
             true, "email is required"
         ]
+    },
+    rol: {
+        type: String,
+        enum: ["visualizador", "Admin"],
+        default: "visualizador",
+        required: [
+            true, "rol is required"
+        ]
     }
 },
 {

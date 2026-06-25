@@ -8,7 +8,7 @@ module.exports.autenticate = async (req, res, next ) => {
         try{
             token = req.headers.authorization;
             token = token.split(' ')[1];
-            const decoded = jwt.verify(token, "CLAVE");
+            const decoded = jwt.verify(token, "CLAVE"); //aqui está payload de mi token
             req.estudiante = await Estudiante.findOne({_id: decoded.id}).select('-password');
 
             next();
