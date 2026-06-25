@@ -5,7 +5,16 @@ export const useEstudiante = () => {
     const [estudiantes, setEstudiantes] = useState([]); //esta antes era la lista jaja
 
     useEffect(() => {
-        api.get("/estudiantes")
+        const token = localStorage.getItem('token');
+        if(!token){
+            console.log('No token found, please login first');
+            return;
+        }
+        api.get("/estudiantes",{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
             .then((response) => {
                 setEstudiantes(response.data)
             })

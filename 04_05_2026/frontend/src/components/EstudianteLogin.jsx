@@ -22,6 +22,7 @@ const EstudianteLogin = (props) => {
             const resultado = await onLogin(nuevoEstudiante);
             const token = resultado.data.token;
             console.log(token)
+            localStorage.setItem('token', token);
             if (token) {
                 setErrorMensaje(""); // Limpiamos errores anteriores si los hubiera
                 navegar("/estudiantes"); // Redirección exitosa
