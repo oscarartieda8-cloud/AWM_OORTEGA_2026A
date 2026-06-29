@@ -6,7 +6,7 @@ const token = require("jsonwebtoken")
 module.exports.getAllEstudiantes = (_, res) => {
     Estudiante.find({})
     .then(estudiantes => res.json(estudiantes))
-    .catch(err => response.json(err))
+    .catch(err => res.json(err))
 }
 
 module.exports.getEstudiante = (req, res) =>{

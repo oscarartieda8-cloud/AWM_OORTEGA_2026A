@@ -6,7 +6,7 @@ const cors = require('cors');
 
 require('./server/config/mongoose.config');
 
-app.use(express.json());
+
 app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
