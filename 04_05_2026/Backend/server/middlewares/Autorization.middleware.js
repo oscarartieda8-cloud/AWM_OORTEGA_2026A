@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const Estudiante = require("../models/estudiante.model")
+const Usuario = require("../models/usuario.model")
 
 module.exports.autenticate = async (req, res, next ) => {
     let token;
@@ -8,8 +8,8 @@ module.exports.autenticate = async (req, res, next ) => {
         try{
             token = req.headers.authorization;
             token = token.split(' ')[1];
-            const decoded = jwt.verify(token, "CLAVE"); //aqui está payload de mi token
-            req.estudiante = await Estudiante.findOne({_id: decoded.id}).select('-password');
+            const decoded = jwt.verify(token, "CLAVE");
+            req.usuario = await Usuario.findOne({_id: decoded.id}).select('-password');
 
             next();
         }

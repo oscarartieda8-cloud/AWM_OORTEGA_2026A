@@ -22,26 +22,6 @@ const EstudianteSchema = new mongoose.Schema({
         required: [
             false
         ]
-    },
-    password: {
-        type: String,
-        required: [
-            true, "Password is required"
-        ]
-    },
-    email: {
-        type: String,
-        required: [
-            true, "email is required"
-        ]
-    },
-    rol: {
-        type: String,
-        enum: ["visualizador", "Admin"],
-        default: "visualizador",
-        required: [
-            true, "rol is required"
-        ]
     }
 },
 {

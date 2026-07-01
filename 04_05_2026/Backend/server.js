@@ -14,8 +14,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); //ESTE ES NUESTRO MIDDLEWARE PARA QUE EXPRESS PUEDA ENTENDER LOS JSONS QUE LE ENVIAMOS DESDE EL FRONTEND - NO ESTA EN LA CARPETA DE MIDDLEWARES PORQUE ES UNA FUNCION QUE YA VIENE INCLUIDA EN EXPRESS, NO ES ALGO QUE HAYAMOS CREADO NOSOTROS
 
 const allEstudiantesRoutes = require('./server/routes/estudiante.routes');
-
 allEstudiantesRoutes(app);
+
+
+const allUsuariosRoutes = require('./server/routes/usuario.routes');
+allUsuariosRoutes(app);
+
 app.listen(puerto, () => {
     console.log("Server listening at port", puerto)
 })
