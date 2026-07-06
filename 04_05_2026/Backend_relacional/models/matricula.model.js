@@ -14,7 +14,7 @@ const Matricula = sequelize.define('matriculas', {
 });
 
 // Definición de relación muchos a muchos
-Estudiante.belongsToMany(Materia, { through: Matricula });
+Estudiante.belongsToMany(Materia, { through: Matricula }); //poner el fk acá!
 Materia.belongsToMany(Estudiante, { through: Matricula });
 
 // Definición de relaciones uno a muchos para cargar con `include` en el controlador
