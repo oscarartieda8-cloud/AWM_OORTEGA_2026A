@@ -8,7 +8,7 @@ module.exports = {
     port: Number(process.env.DB_PORT || 3306),
     name: process.env.DB_NAME || "epn_bdd",
     user: process.env.DB_USER || "root",
-    pass: process.env.DB_PASS || "",
+    pass: process.env.DB_PASS || "rootl",
     dialect: process.env.DB_DIALECT || "mysql",
   },
 };

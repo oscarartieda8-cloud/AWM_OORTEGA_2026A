@@ -1,9 +1,11 @@
 const estudianteController = require('../controllers/estudiante.controller');
+const autorizacion = require('../middlewares/Autorization.middleware')
+const rol = require('../middlewares/Rol.middleware')
 
-module.exports = function(app){ 
-    app.get('/estudiantes', estudianteController.getAllEstudiantes);
-    app.get('/estudiantes/:id', estudianteController.getEstudiante);
-    app.post('/estudiantes', estudianteController.postEstudiante);
-    app.put('/estudiantes/:id', estudianteController.putEstudiante);
-    app.delete('/estudiantes/:id', estudianteController.deleteEstudiante);
+module.exports = function(app){
+    app.get('/estudiantes', autorizacion.autenticate, rol.tieneRol("Admin", "visualizador"), estudianteController.getAllEstudiantes);
+    app.get('/estudiantes/:id', autorizacion.autenticate, rol.tieneRol("Admin", "visualizador"), estudianteController.getEstudiante);
+    app.post('/estudiantes', autorizacion.autenticate, rol.tieneRol("Admin"), estudianteController.postEstudiante);
+    app.put('/estudiantes/:id', autorizacion.autenticate, rol.tieneRol("Admin"), estudianteController.putEstudiante);
+    app.delete('/estudiantes/:id', autorizacion.autenticate, rol.tieneRol("Admin"), estudianteController.deleteEstudiante);
 }

@@ -8,10 +8,12 @@ const env = require('./config/env');
 
 const { createSequelize } = require('./config/sequelize.config');
 const sequelize = createSequelize();
-
+//MODELOS
 require('./models/estudiante.model');
 require('./models/materia.model');
 require('./models/matricula.model'); // este archivo dispara los belongsToMany
+require('./models/usuario.model');
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,6 +27,10 @@ allMateriasRoutes(app);
 //MATRICULAS 
 const allMatriculasRoutes = require('./routes/matricula.routes');
 allMatriculasRoutes(app);
+
+//USUARIOS
+const allUsuariosRoutes = require('./routes/usuario.routes');
+allUsuariosRoutes(app);
 
 // Conecta a la base y levanta el servidor
 sequelize.sync().then(() => {

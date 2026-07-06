@@ -2,7 +2,6 @@ const Matricula = require("../models/matricula.model");
 const Estudiante = require("../models/estudiante.model");
 const Materia = require("../models/materia.model");
 
-// GET ALL: Traer todas las matrículas, con el estudiante y la materia ya incluidos
 module.exports.getAllMatriculas = async (_, res) => {
     try {
         const matriculas = await Matricula.findAll({
@@ -14,7 +13,7 @@ module.exports.getAllMatriculas = async (_, res) => {
     }
 };
 
-// GET: Traer las matrículas (con su materia incluida) de un estudiante
+
 module.exports.getMateriasDeEstudiante = async (req, res) => {
     try {
         const matriculas = await Matricula.findAll({
@@ -40,7 +39,6 @@ module.exports.getEstudiantesDeMateria = async (req, res) => {
     }
 };
 
-// POST: Matricular a un estudiante en una materia
 module.exports.postMatricula = async (req, res) => {
     try {
         const { EstudianteId, MateriaId } = req.body;
@@ -51,7 +49,6 @@ module.exports.postMatricula = async (req, res) => {
     }
 };
 
-// DELETE: Eliminar una matrícula (desmatricular a un estudiante de una materia)
 module.exports.deleteMatricula = async (req, res) => {
     try {
         const { EstudianteId, MateriaId } = req.body;
