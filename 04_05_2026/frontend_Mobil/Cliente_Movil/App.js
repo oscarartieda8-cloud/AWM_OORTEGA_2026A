@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native'; //Estos son componentes predefinidos de REACT-NATIVE https://reactnative.dev/docs/components-and-apis
-
+import { StyleSheet, View } from 'react-native';
+import ListaEstudiantes from './src/components/ListaEstudiantes'; 
 
 export default function App() {
   return (
     <View style={styles.container}>
-      
+      <ListaEstudiantes />
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -15,6 +16,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start', 
+    marginTop: 50, 
   },
 });
