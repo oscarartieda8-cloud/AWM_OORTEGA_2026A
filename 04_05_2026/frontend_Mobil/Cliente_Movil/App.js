@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
-import ListaEstudiantes from './src/components/ListaEstudiantes'; 
 import { NavigationContainer } from '@react-navigation/native'; //este es para el equivalente de rutas jeje
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DetalleEstudiante from './src/components/DetalleEstudiante';
 import FormularioEstudiante from './src/components/FormularioEstudiante';
+import ListaEstudiantes from './src/components/ListaEstudiantes'; 
+
 
 export default function App() {
   const Stack = createNativeStackNavigator();
