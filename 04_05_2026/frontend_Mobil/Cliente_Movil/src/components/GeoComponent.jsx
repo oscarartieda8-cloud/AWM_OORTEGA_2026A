@@ -29,21 +29,11 @@ const GeoComponent = () => {
             {/* Campo para la Latitud */}
             <View style={styles.grupoInput}>
                 <Text>Latitud: {ubicacion ? JSON.stringify(ubicacion.coords.latitude) : error}</Text>
-                <TextInput
-                    style={styles.cajaTexto}
-                    placeholder="Aquí se mostrará la latitud..."
-                    editable={false}
-                />
             </View>
 
             {/* Campo para la Longitud */}
             <View style={styles.grupoInput}>
                 <Text>Longitud: {ubicacion ? JSON.stringify(ubicacion.coords.longitude) : error}</Text>
-                <TextInput
-                    style={styles.cajaTexto}
-                    placeholder="Aquí se mostrará la longitud..."
-                    editable={false}
-                />
             </View>
         </View>
     );

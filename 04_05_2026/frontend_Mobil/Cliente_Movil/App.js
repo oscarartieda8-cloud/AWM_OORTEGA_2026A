@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'; //este es para el equivalente de rutas jeje
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import MenuPrincipal from './src/components/MenuPrincipal';
+import MenuPrincipal from './src/Pages/MenuPrincipal';
 
 import DetalleEstudiante from './src/components/DetalleEstudiante';
 import FormularioEstudiante from './src/components/FormularioEstudiante';
