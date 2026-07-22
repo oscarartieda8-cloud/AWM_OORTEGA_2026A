@@ -41,14 +41,14 @@ const AutorForm = (props) => {
 
     return (
         <div>
-            <h1>Favorite authors</h1>
-            <button onClick={() => navegar("/autores")}>Home</button>
+            <h1>Autor Fav</h1>
+            <button onClick={() => navegar("/autores")}>Regresar a Inicio</button>
 
             <h2>{id ? "Edit this author" : "Add a new author:"}</h2>
 
             <form onSubmit={handlerSubmit}>
                 <div>
-                    <label htmlFor="autor_nombre">Name: </label>
+                    <label htmlFor="autor_nombre">Nombre: </label>
                     <input
                         type="text"
                         name="nombre"
