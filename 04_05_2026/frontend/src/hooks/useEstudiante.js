@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { api } from "../utils/api";
 
 export const useEstudiante = () => {
-    const [estudiantes, setEstudiantes] = useState([]); //esta antes era la lista jaja
+    const [estudiantes, setEstudiantes] = useState([]); 
 
     useEffect(() => {
         api.get("/estudiantes")

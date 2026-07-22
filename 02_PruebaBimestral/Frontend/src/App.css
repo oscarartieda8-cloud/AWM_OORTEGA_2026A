@@ -1,0 +1,6 @@
+.contenedor-autores {                                                                                                                                                    
+      display: flex;                                                                                                                                                         
+      flex-direction: column; /* Apila el H1, el botón y la tabla de arriba a abajo */                                                                                       
+      align-items:center;     /* Centra la tabla, el título y los botones en el medio horizontal */                                                                         
+      gap: 15px;               /* Pone un espacio uniforme entre cada elemento */                                                                                            
+} 

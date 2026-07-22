@@ -1,6 +1,4 @@
-const Estudiante = require('../../../../04_05_2026/Backend_relacional/models/estudiante.model');
 const Autor = require('../models/autor.model')
-const { Model } = require('sequelize')
 
 module.exports.ListaDeAutores = async (_, res) => {
     try{
